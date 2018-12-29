@@ -18,10 +18,11 @@ end
 
 
 before do #прикаждом вызове
-  @comments = Comments.all
+ 
 end
 
 get '/' do
+	@comments = Comments.new
 	@results = Posts.order('created_at DESC')
 	erb :index			
 end
@@ -48,7 +49,7 @@ end
 
 post '/details/:post_id' do
 	post_id = params[:post_id]
-    content = params[:content]
+	@d = Comments.new params[:comments]
     if content.length <= 0
 		@error = 'Type comment text'
 		return redirect to ('/details/' + post_id)
