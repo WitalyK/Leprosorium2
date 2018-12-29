@@ -4,21 +4,21 @@
 		<%= @row['content'] %>
 		<br/>
 		<br/>
-		Added at <%= @row['Created_date'] %>
+		Added at <%= @row['updated_at'] %>
 	</p>
 	<hr/>
 <h4>Comments</h4>
-<% @comments.each do |comment| %>
+<% @Comments.each do |comment| %>
 	<p>
 		<%= comment['content']%>
 		<br/>
-		<span style="font-size: 75%">Added at <%= comment['Created_date']%></span>
+		<span style="font-size: 75%">Added at <%= comment['updated_at']%></span>
 		<hr/>
 	</p>
 <% end %>
 <p>
   <form action="/details/<%= @row['id'] %>" method="POST" role="form">
-       <textarea name="content" class="form-control" rows="6" placeholder="Type comment text here" style = "width: 900px"></textarea> 
+       <textarea name="comments[content]" class="form-control" rows="6" placeholder="Type comment text here" style = "width: 900px"></textarea> 
        <br/>
        <button type="submit" class="btn btn-primary">Add comment</button>
   </form>
