@@ -10,10 +10,12 @@ set :database, "sqlite3:leprosorium2.db"
 class Posts < ActiveRecord::Base #создание таблицы (сущности)
 	validates :name, presence: true
 	validates :content, presence: true
+  
 end
 
 class Comments  < ActiveRecord::Base #создание таблицы (сущности)
 	validates :content, presence: true
+  
 end
 
 
